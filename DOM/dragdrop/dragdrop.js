@@ -11,7 +11,6 @@ const holes = document.querySelectorAll(".holes");
 items.forEach((number, index) => {
   number.setAttribute("id", `number-${index}`);
 });
-
 holes.forEach((number, index) => {
   number.setAttribute("id", `hole-${index}`);
 });

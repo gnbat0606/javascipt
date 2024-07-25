@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 9;
+        padding: 0;
+      }
+      .container {
+        width: 100vw;
+      }
+      .topSide {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+      }
+      #bottomSide {
+        display: flex;
+        width: 100%;
+        position: relative;
+      }
+      #number1 {
+        color: red;
+        font-size: 128px;
+      }
+      #number2 {
+        color: blue;
+        font-size: 128px;
+      }
+      #left {
+        background-color: red;
+        height: 300px;
+        width: 50%;
+      }
+      #right {
+        background-color: blue;
+        height: 300px;
+        width: 50%;
+      }
+      #win {
+        font-size: 200px;
+        font-style: bold;
+        color: white;
+        position: absolute;
+        left: 500px;
+        top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topSide">
+        <div id="number1">50</div>
+        <button id="reset">reset</button>
+        <div id="number2">50</div>
+      </div>
+      <div id="bottomSide">
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="win"></div>
+      </div>
+    </div>
+  </body>
+  <script src="./redBlue.js"></script>
+</html>
