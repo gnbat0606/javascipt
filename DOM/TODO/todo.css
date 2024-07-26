@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(https://c1.wallpaperflare.com/path/565/385/156/sunset-brook-green-meadow-june-df867360f0bed19da26bbb3838498c8f.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0px 16px;
+  height: 100vh;
+  width: 1140px;
+  margin: auto;
+}
+
+.boards {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 120px 0px;
+}
+.board {
+  background-color: #ebecf0;
+  padding: 8px;
+  border-radius: 8px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 265px;
+}
+
+.board-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  display: none;
+}
+
+.card {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  cursor: grab;
+  display: flex;
+  gap: 12px;
+}
+
+.done {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.detail {
+  flex: 1;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.priority {
+  width: fit-content;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 4px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.count {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.add-btn {
+  display: flex;
+  gap: 16px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.add-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#modalContainer {
+  display: none;
+}
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.away {
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  position: absolute;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: white;
+  width: 400px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+label {
+  font-size: 14px;
+}
+
+#title {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 8px;
+}
+#description {
+  width: 100%;
+  height: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 8px;
+}
+select {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+form button {
+  margin-top: 24px;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 32px;
+  font-size: 14px;
+}
