@@ -1,6 +1,5 @@
 const arr = ["Todo", "In progress", "Stuck", "Done"];
 const boards = document.getElementById("boards");
-console.log(boards);
 arr.forEach((names) => {
   boards.innerHTML += `<div class="board">
           <div class="board-header"> ${names} <span class="count">0</span></div>
@@ -30,7 +29,16 @@ arr.forEach((names) => {
 const addBtn = document.getElementById("addBtn");
 const modalContainer = document.getElementById("modalContainer");
 
+console.log(boards);
+
+console.log(boards.innerHTML);
+
 addBtn.addEventListener("click", () => {
   console.log(addBtn);
   modalContainer.style.display = "flex";
+});
+
+const away = document.getElementById("away");
+away.addEventListener("click", () => {
+  modalContainer.style.display = "none";
 });
