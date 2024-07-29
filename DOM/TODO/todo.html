@@ -13,13 +13,12 @@
       </div>
     </div>
     <div class="modal-container" id="modalContainer">
-      <div class="away" id="away" ></div>
       <div class="modal">
         <form action="">
           <h1>Add Task</h1>
           <div>
             <label title="name">Title</label>
-            <input id="title" name="title" />
+            <input id="title" name="title" value="hello" />
           </div>
           <div>
             <label title="description">Description</label>
@@ -27,13 +26,22 @@
           </div>
           <div>
             <label title="status">Status</label>
-            <select name="" id=""></select>
+            <select name="" id="stat">
+              <option value="todo">To do</option>
+              <option value="inprogress">In progress</option>
+              <option value="stuck">Stuck</option>
+              <option value="done">Done</option>
+            </select>
           </div>
           <div>
             <label title="priority">Priority</label>
-            <select name="" id=""></select>
+            <select name="" id="priority">
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+            </select>
           </div>
-          <button type="submit">Add Task</button>
+          <button type="submit" id="submitButton">Add Task</button>
         </form>
       </div>
     </div>
