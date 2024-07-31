@@ -1,4 +1,4 @@
-const arr = ["Todo", "In progress", "Stuck", "Done"];
+const names = ["Todo", "In progress", "Stuck", "Done"];
 const boards = document.getElementById("boards");
 const deleteCard = document.getElementById("deleteCard");
 
@@ -10,7 +10,7 @@ const inputValues = {
   id: "",
 };
 
-arr.forEach((names) => {
+names.forEach((names) => {
   boards.innerHTML += `<div class="board" id="board">
           <div class="board-header"> ${names} <span class="count">0</span></div>
           <div class="cards"></div>
@@ -22,7 +22,7 @@ arr.forEach((names) => {
 });
 
 const cardCreator = () => {
-  return `<div class="card">
+  return `<div class="card" draggable="true" id="${inputValues.id}" >
     <div class="done">
       <i class="fa-solid fa-check"></i>
     </div>
@@ -52,14 +52,13 @@ addBtns.forEach((halo) => {
 });
 
 //-tsonhiig gargah ghde submit button uyd
-//+++ value log
 const title = document.getElementById("title");
 const description = document.getElementById("description");
 const stat = document.getElementById("stat");
 const priority = document.getElementById("priority");
 const cards = document.querySelectorAll(".cards");
 const submitButton = document.getElementById("submitButton");
-////////////////////////
+//
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   modalContainer.style.display = "none";
@@ -80,9 +79,14 @@ submitButton.addEventListener("click", (event) => {
     throw new Error("title hooson bn");
   }
 
+  inputValues.id = Date.now();
+
   if (stat.value == "todo") {
     cards[0].innerHTML += createdCard;
+    inputValues.id = Date.now();
+    console.log(inputValues.id);
   } else if (stat.value == "inprogress") {
+    console.log(inputValues.id);
     cards[1].innerHTML += createdCard;
   } else if (stat.value == "stuck") {
     cards[2].innerHTML += createdCard;
@@ -94,9 +98,8 @@ submitButton.addEventListener("click", (event) => {
 //+tsonhiig gargah
 
 window.addEventListener("click", (event) => {
+  ``;
   if (event.target == modalContainer) {
     modalContainer.style.display = "none";
   }
 });
-
-//
