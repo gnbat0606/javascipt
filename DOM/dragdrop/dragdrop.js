@@ -11,13 +11,14 @@ const holes = document.querySelectorAll(".holes");
 items.forEach((number, index) => {
   number.setAttribute("id", `number-${index}`);
 });
+items.forEach((number) => {
+  number.setAttribute("draggable", "true");
+});
+
 holes.forEach((number, index) => {
   number.setAttribute("id", `hole-${index}`);
 });
 
-items.forEach((number) => {
-  number.setAttribute("draggable", "true");
-});
 console.log(items);
 
 items.forEach((number) => {

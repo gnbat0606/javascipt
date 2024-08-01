@@ -1,6 +1,5 @@
 const names = ["Todo", "In progress", "Stuck", "Done"];
 const boards = document.getElementById("boards");
-const deleteCard = document.getElementById("deleteCard");
 
 const inputValues = {
   title: "",
@@ -13,7 +12,7 @@ const inputValues = {
 names.forEach((names) => {
   boards.innerHTML += `<div class="board" id="board">
           <div class="board-header"> ${names} <span class="count">0</span></div>
-          <div class="cards"></div>
+          <div class="cards" id="cards" ondragend="dragEnd()" ></div>
           <div id="addBtn" class="add-btn">
             <i class="fa-solid fa-plus"></i>
             <div>Add card</div>
@@ -22,7 +21,7 @@ names.forEach((names) => {
 });
 
 const cardCreator = () => {
-  return `<div class="card" draggable="true" id="${inputValues.id}" >
+  return `<div class="card" draggable="true" ondragstart="dragCard(${inputValues.id})" id="${inputValues.id}" >
     <div class="done">
       <i class="fa-solid fa-check"></i>
     </div>
@@ -32,10 +31,10 @@ const cardCreator = () => {
       <div class="priority">${inputValues.priority}</div>
     </div>
     <div class="actions">
-      <div class="done">
+      <div class="done" onclick="removeCard(${inputValues.id})">
         <i class="fa-solid fa-xmark"></i>
       </div>
-      <div class="done" id="deleteCard">
+      <div class="done" >
         <i class="fa-solid fa-pen-to-square"></i>
       </div>
     </div>
@@ -48,6 +47,8 @@ const modalContainer = document.getElementById("modalContainer");
 addBtns.forEach((halo) => {
   halo.addEventListener("click", () => {
     modalContainer.style.display = "flex";
+    description.value = "";
+    title.value = "";
   });
 });
 
@@ -68,8 +69,6 @@ submitButton.addEventListener("click", (event) => {
   inputValues.status = stat.value;
   inputValues.priority = priority.value;
 
-  const createdCard = cardCreator();
-
   if (title.value == "") {
     alert("title оруулна уу");
     throw new Error("title hooson bn");
@@ -81,12 +80,11 @@ submitButton.addEventListener("click", (event) => {
 
   inputValues.id = Date.now();
 
+  const createdCard = cardCreator();
+
   if (stat.value == "todo") {
     cards[0].innerHTML += createdCard;
-    inputValues.id = Date.now();
-    console.log(inputValues.id);
   } else if (stat.value == "inprogress") {
-    console.log(inputValues.id);
     cards[1].innerHTML += createdCard;
   } else if (stat.value == "stuck") {
     cards[2].innerHTML += createdCard;
@@ -103,3 +101,21 @@ window.addEventListener("click", (event) => {
     modalContainer.style.display = "none";
   }
 });
+
+const removeCard = (id) => {
+  let card = document.getElementById(id);
+  const cardDad = card.parentNode;
+  cardDad.removeChild(card);
+};
+
+const dragCard = (id) => {
+  let card = document.getElementById(id);
+};
+
+// cardsss.forEach((card) => {
+//   card.addEventListener("dragstart", (event) => {
+//     console.log(card);
+//     event.dataTransfer.setData("text/plain", event.target.id);
+//     console.log(event.target.id);
+//   });
+// });
