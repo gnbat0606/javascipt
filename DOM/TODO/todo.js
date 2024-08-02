@@ -1,4 +1,18 @@
-const names = ["Todo", "In progress", "Stuck", "Done"];
+const names = [
+  {
+    name: "Todo",
+    id: "todo",
+  },
+  {
+    name: "In progress",
+    id: "inprogress",
+  },
+  { name: "Stuck", id: "stuck" },
+  {
+    name: "Done",
+    id: "done",
+  },
+];
 const boards = document.getElementById("boards");
 
 const inputValues = {
@@ -9,10 +23,10 @@ const inputValues = {
   id: "",
 };
 
-names.forEach((names) => {
-  boards.innerHTML += `<div class="board" id="board">
-          <div class="board-header"> ${names} <span class="count">0</span></div>
-          <div class="cards" id="cards" ondragend="dragEnd()" ></div>
+names.forEach((name) => {
+  boards.innerHTML += `<div class="board" id="${name.id}">
+          <div class="board-header"> ${name.name} <span class="count">0</span></div>
+          <div class="cards" ></div>
           <div id="addBtn" class="add-btn">
             <i class="fa-solid fa-plus"></i>
             <div>Add card</div>
@@ -22,8 +36,8 @@ names.forEach((names) => {
 
 const cardCreator = () => {
   return `<div class="card" draggable="true" ondragstart="dragCard(${inputValues.id})" id="${inputValues.id}" >
-    <div class="done">
-      <i class="fa-solid fa-check"></i>
+    <div class="done" id="doneButton" onclick="doneCard(${inputValues.id})" >
+      <i class="fa-solid fa-check" ></i>
     </div>
     <div class="detail">
       <h4 class="h4">${inputValues.title}</h4>
@@ -112,10 +126,40 @@ const dragCard = (id) => {
   let card = document.getElementById(id);
 };
 
-// cardsss.forEach((card) => {
-//   card.addEventListener("dragstart", (event) => {
-//     console.log(card);
-//     event.dataTransfer.setData("text/plain", event.target.id);
-//     console.log(event.target.id);
-//   });
-// });
+cards.forEach((card) => {
+  card.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("text", event.target.id);
+  });
+});
+
+const board = document.querySelectorAll(".board");
+
+const doneButton = document.getElementById("doneButton");
+const doneCard = (id) => {
+  let card = document.getElementById(id);
+  cards[3].appendChild(card);
+  card.childNodes[1].style.backgroundColor = "black";
+  card.childNodes[1].childNodes[1].style.color = "white";
+};
+
+board.forEach((number) => {
+  number.addEventListener("dragover", (event) => {
+    event.preventDefault();
+  });
+  number.addEventListener("drop", (event) => {
+    const cardId = event.dataTransfer.getData("text");
+    const cards = event.currentTarget.querySelector(".cards");
+
+    const whichItem = document.getElementById(cardId);
+
+    if (event.currentTarget.id === "done") {
+      whichItem.childNodes[1].style.backgroundColor = "black";
+      whichItem.childNodes[1].childNodes[1].style.color = "white";
+    } else {
+      whichItem.childNodes[1].style.backgroundColor = "white";
+      whichItem.childNodes[1].childNodes[1].style.color = "black";
+    }
+
+    cards.appendChild(document.getElementById(cardId));
+  });
+});
