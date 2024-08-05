@@ -1,10 +1,24 @@
-signupButton = document.getElementById("signupButton");
-loginButton = document.getElementById("loginButton");
-const login = () => {
-  window.location.href = "./fb-login.html";
-};
-const signup = () => {
-  window.location.href = "./fb-signup.html";
-};
+//signup page
+registerButton = document.getElementById("registerButton");
+usernameInput = document.getElementById("usernameInput");
+passwordInputFirst = document.getElementById("passwordInputFirst");
+passwordInputSecond = document.getElementById("passwordInputSecond");
 
-register = document.getElementById("register");
+registerButton.addEventListener("click", () => {
+  if (
+    !usernameInput.value ||
+    !passwordInputFirst.value ||
+    !passwordInputSecond.value
+  ) {
+    alert("ali neg ni hooson bna");
+    return;
+  }
+  if (passwordInputFirst.value != passwordInputSecond.value) {
+    alert("password taarahgui baina");
+    return;
+  }
+
+  window.localStorage.setItem(usernameInput.value, passwordInputFirst.value);
+  alert("Amjilttai burtgegdlee ");
+  window.location.href = "./fb-login.html";
+});
