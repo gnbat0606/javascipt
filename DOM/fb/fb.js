@@ -6,3 +6,5 @@ const login = () => {
 const signup = () => {
   window.location.href = "./fb-signup.html";
 };
+
+register = document.getElementById("register");

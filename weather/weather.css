@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 768px;
+}
+.container {
+  background-color: black;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+h1 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.search {
+  background-color: grey;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-around;
+}
+.search input {
+  background-color: grey;
+  color: white;
+  border: 0;
+  width: 700px;
+}
+
+::placeholder {
+  color: white;
+}
+.myLocation {
+  color: white;
+  background-image: url(https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/iStock-104472907-ec1d53a7c5724086414f13ae0dab8e1b.jpg);
+}
+.top {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+.temprature {
+  font-size: 40px;
+}
