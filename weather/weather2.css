@@ -40,7 +40,8 @@ h1 {
 }
 .card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 10px;
   color: white;
   background-image: url(https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/iStock-104472907-ec1d53a7c5724086414f13ae0dab8e1b.jpg);
@@ -48,10 +49,6 @@ h1 {
   border-radius: 10px;
   margin-top: 5px;
   padding: 15px 10px 15px 10px;
-}
-.top {
-  display: flex;
-  justify-content: space-between;
 }
 .temperature {
   font-size: 40px;
@@ -62,18 +59,14 @@ h1 {
 .location-time {
   font-size: 12px;
 }
-.bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
 .cloud {
   font-size: 14px;
 }
+.right {
+  display: flex;
+}
 .icons {
   font-size: 14px;
-  display: flex;
   gap: 5px;
-  padding: 0 12px 0px 0;
   scale: 2;
 }
